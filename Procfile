@@ -1,0 +1,1 @@
+web: python NBCurrencyRates_bot.py
