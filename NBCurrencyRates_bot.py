@@ -6,7 +6,7 @@ bot = telebot.TeleBot('508133554:AAER-3E_kcMTrnQWtL7wF_MBaOndTXhl2KU')
 @bot.message_handler(content_types=["text"])
 def handle_text(message):
     if message.text == "Hi":
-        bot.send_message(message.from_user.id, "Hello" + message.from_user.name +"! I am CurrencyRates bot. How can i help you?")
+        bot.send_message(message.from_user.id, "Hello" + message.from_user +"! I am CurrencyRates bot. How can i help you?")
         
     elif message.text == "How are you?" or message.text == "How are u?":
         bot.send_message(message.from_user.id, "I'm fine, thanks. And you?")
