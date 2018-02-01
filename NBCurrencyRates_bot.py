@@ -19,14 +19,15 @@ def handle_text(message):
         bot.send_message(message.from_user.id, "I'm fine, thanks. And you?")
         
     elif message.text == "Balance":
-        sum_uah = 5420 
+        sum_uah = 8420 
         all_json = get_quote('https://btc-trade.com.ua/api/ticker')
         dictionary_all = json.loads(all_json)
-        btc_uah = 0.01015 * float(dictionary_all['btc_uah']['sell'])
-        eth_uah = 0.0179550180 * float(dictionary_all['eth_uah']['sell'])
+        btc_uah = 0.0121499220 * float(dictionary_all['btc_uah']['sell'])
+        eth_uah = 0.0610054820 * float(dictionary_all['eth_uah']['sell'])
+        ltc_uah = 0.0818380605 * float(dictionary_all['ltc_uah']['sell'])
         krb_uah = 0.0047016455 * float(dictionary_all['krb_uah']['sell'])
         
-        sum_dif = btc_uah + eth_uah + krb_uah + 0.2859790000 - sum_uah
+        sum_dif = btc_uah + eth_uah + ltc_uah + krb_uah + 0.0004066435 - sum_uah
         
         message_for_client = "Input  : " + str(sum_uah) + " uah. " + "Balance: " + str(sum_dif) + " uah"
         bot.send_message(message.from_user.id, message_for_client)
