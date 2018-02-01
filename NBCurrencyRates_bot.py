@@ -2,6 +2,7 @@
 from urllib.request import Request, urlopen
 import json
 import telebot
+import os
 
 
 def get_quote(url):
