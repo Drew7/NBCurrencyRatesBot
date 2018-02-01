@@ -7,7 +7,7 @@ import telebot
 def get_quote(url):
     return urlopen(Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64)'})).read().decode(encoding='UTF-8')
 
-bot = telebot.TeleBot('508133554:AAER-3E_kcMTrnQWtL7wF_MBaOndTXhl2KU')
+bot = telebot.TeleBot('')
 
 @bot.message_handler(content_types=["text"])
 def handle_text(message):
