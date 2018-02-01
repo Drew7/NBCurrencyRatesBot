@@ -1,1 +1,1 @@
-web: python NBCurrencyRates_bot.py
+worker: python NBCurrencyRates_bot.py
