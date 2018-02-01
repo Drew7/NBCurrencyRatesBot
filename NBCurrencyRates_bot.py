@@ -24,6 +24,7 @@ def handle_text(message):
         btc_uah = 0.01015 * float(dictionary_all['btc_uah']['sell'])
         eth_uah = 0.0179550180 * float(dictionary_all['eth_uah']['sell'])
         krb_uah = 0.0047016455 * float(dictionary_all['krb_uah']['sell'])
+        
         sum_dif = btc_uah + eth_uah + krb_uah + 0.2859790000 - sum_uah
         
         message_for_client = "Input  : " + str(sum_uah) + " uah. " + "Balance: " + str(sum_dif) + " uah"
