@@ -13,7 +13,7 @@ bot = telebot.TeleBot(os.environ['TELEGRAM_KEY'])
 @bot.message_handler(content_types=["text"])
 def handle_text(message):
     if message.text == "Hi":
-        bot.send_message(message.from_user.id, "Hello! " + message.from_user.first_name + " I am CurrencyRates bot. How can i help you?")
+        bot.send_message(message.from_user.id, "Hello! " + message.from_user.first_name + " I am your CryptoBalance bot. How can i help you?")
         
     elif message.text == "How are you?" or message.text == "How are u?":
         bot.send_message(message.from_user.id, "I'm fine, thanks. And you?")
