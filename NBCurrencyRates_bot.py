@@ -19,18 +19,32 @@ def handle_text(message):
         bot.send_message(message.from_user.id, "I'm fine, thanks. And you?")
         
     elif message.text == "Balance":
+        
+        btc_in = 5967.53979
+        eth_in = 1465.396
+        ltc_in = 660.8455728
+        
         sum_uah = 8420 
         all_json = get_quote('https://btc-trade.com.ua/api/ticker')
         dictionary_all = json.loads(all_json)
         btc_uah = 0.0121499220 * float(dictionary_all['btc_uah']['sell'])
+        btc_diff = btc_uah - btc_in
         eth_uah = 0.0610054820 * float(dictionary_all['eth_uah']['sell'])
+        eth_diff = eth_uah - eth_in
         ltc_uah = 0.0818380605 * float(dictionary_all['ltc_uah']['sell'])
+        ltc_diff = ltc_uah - ltc_in
         krb_uah = 0.0047016455 * float(dictionary_all['krb_uah']['sell'])
         
         sum_dif = btc_uah + eth_uah + ltc_uah + krb_uah + 0.0004066435 - sum_uah
         
-        message_for_client = "Input  : " + str(sum_uah) + " uah. " + "Balance: " + str(sum_dif) + " uah"
-        bot.send_message(message.from_user.id, message_for_client)
+        bot.send_message(message.from_user.id, "Bitcoin:   " + str(btc_diff) + " uah.")
+        bot.send_message(message.from_user.id, "Ethereum : " + str(eth_diff) + " uah.")
+        bot.send_message(message.from_user.id, "Litecoin:  " + str(ltc_diff) + " uah.")
+        
+        message_input_uah = "Input  : " + str(sum_uah) + " uah." 
+        message_output = "Balance: " + str(sum_dif) + " uah"
+        bot.send_message(message.from_user.id, message_input_uah)
+        bot.send_message(message.from_user.id, message_output)
         
     else:
         markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
